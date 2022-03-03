@@ -8,7 +8,7 @@
 
 ### 🎯 Sobre
 
-O **FoodX** é uma plataforma WEB e MOBILE para compra de qualquer tipo de comida ou bebida, isso fica a preferência do usário.
+O **FoodX** é uma plataforma WEB e MOBILE para compra de qualquer tipo de comida ou bebida, isso fica a preferência do usuário.
 
 A API do **FoodX** irá servir os dados para a plataforma WEB e Mobile disponível para Android.
 
