@@ -9,7 +9,7 @@ import {
 import { v4 as uuidV4 } from 'uuid';
 
 @Entity('users')
-class UserModel {
+class UserEntity {
   @PrimaryColumn()
   id: string;
 
@@ -17,10 +17,22 @@ class UserModel {
   name: string;
 
   @Column()
+  username: string;
+
+  @Column()
+  file: string;
+
+  @Column()
   email: string;
 
   @Column()
   password: string;
+
+  @Column()
+  cpf: string;
+
+  @Column()
+  phone: string;
 
   @Column()
   isActive: boolean;
@@ -34,9 +46,9 @@ class UserModel {
   constructor() {
     if (!this.id) {
       this.id = uuidV4();
-      console.log('id ta aqui', this.id);
+      // console.log(this.id);
     }
   }
 }
 
-export { UserModel };
+export { UserEntity };

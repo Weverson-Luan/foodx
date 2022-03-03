@@ -2,14 +2,14 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { UserModel } from '../entity/user.entity';
+import { UserEntity } from '../entity/user.entity';
 import { UserDTO } from '../../DTOS/userDTO';
 
 @Injectable()
 export class UserRepository {
   constructor(
-    @InjectRepository(UserModel)
-    private repo: Repository<UserModel>,
+    @InjectRepository(UserEntity)
+    private repo: Repository<UserEntity>,
   ) {}
 
   async insert(data: UserDTO): Promise<UserDTO> {

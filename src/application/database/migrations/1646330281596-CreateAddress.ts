@@ -1,7 +1,7 @@
-/* eslint-disable @typescript-eslint/no-empty-function */
+/* eslint-disable prettier/prettier */
 import { MigrationInterface, QueryRunner, Table } from 'typeorm';
 
-export class CreateAddress1646261015054 implements MigrationInterface {
+export class CreateAddress1646330281596 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.createTable(
       new Table({
@@ -13,7 +13,15 @@ export class CreateAddress1646261015054 implements MigrationInterface {
             isPrimary: true,
           },
           {
+            name: 'user_id',
+            type: 'uuid',
+          },
+          {
             name: 'uf',
+            type: 'varchar',
+          },
+          {
+            name: 'zip_code',
             type: 'varchar',
           },
           {
@@ -37,6 +45,14 @@ export class CreateAddress1646261015054 implements MigrationInterface {
             type: 'varchar',
           },
           {
+            name: 'long',
+            type: 'numeric',
+          },
+          {
+            name: 'lati',
+            type: 'numeric',
+          },
+          {
             name: 'created_at',
             type: 'timestamp',
             default: 'now()',
@@ -45,6 +61,16 @@ export class CreateAddress1646261015054 implements MigrationInterface {
             name: 'updated_at',
             type: 'timestamp',
             default: 'now()',
+          },
+        ],
+        foreignKeys: [
+          {
+            name: 'fk_address_user',
+            columnNames: ['user_id'],
+            referencedTableName: 'users',
+            referencedColumnNames: ['id'],
+            onDelete: 'CASCADE',
+            onUpdate: 'CASCADE',
           },
         ],
       }),
