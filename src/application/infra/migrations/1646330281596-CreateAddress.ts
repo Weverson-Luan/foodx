@@ -46,11 +46,11 @@ export class CreateAddress1646330281596 implements MigrationInterface {
           },
           {
             name: 'long',
-            type: 'numeric',
+            type: 'float',
           },
           {
             name: 'lati',
-            type: 'numeric',
+            type: 'float',
           },
           {
             name: 'created_at',

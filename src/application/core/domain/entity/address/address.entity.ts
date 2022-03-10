@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 import {
   Entity,
-  PrimaryColumn,
+  PrimaryGeneratedColumn,
   Column,
   CreateDateColumn,
   UpdateDateColumn,
@@ -13,7 +13,7 @@ import { UserEntity } from '../users/user.entity';
 
 @Entity('address')
 export class AddressEntity {
-  @PrimaryColumn()
+  @PrimaryGeneratedColumn('uuid')
   id: string;
 
   @Column()
@@ -40,10 +40,10 @@ export class AddressEntity {
   @Column()
   reference: string;
 
-  @Column({ type: 'numeric' })
+  @Column({ type: 'float' })
   long: number;
 
-  @Column({ type: 'numeric' })
+  @Column({ type: 'float' })
   lati: number;
 
   @Column()
@@ -54,17 +54,12 @@ export class AddressEntity {
     onDelete: 'CASCADE',
     onUpdate: 'CASCADE',
   })
-  @JoinColumn({ name: 'user_id' }) //qual coluna dentro da minha tabela de videos que tou referenciando
+  @JoinColumn({ name: 'user_id' }) //qual coluna dentro da minha tabela de endereço que tou referenciando
   user: UserEntity;
+
   @CreateDateColumn()
   created_at: Date;
 
   @UpdateDateColumn()
   updated_at: Date;
-
-  constructor() {
-    if (!this.id) {
-      this.id = uuidV4();
-    }
-  }
 }
