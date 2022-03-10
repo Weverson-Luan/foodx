@@ -8,7 +8,7 @@
 
 ### 🎯 Sobre
 
-O **FoodX** é uma plataforma WEB e MOBILE para compra de qualquer tipo de comida ou bebida, isso fica a preferência do usário.
+O **FoodX** é uma plataforma WEB e MOBILE para compra de qualquer tipo de comida ou bebida, isso fica a preferência do usuário.
 
 A API do **FoodX** irá servir os dados para a plataforma WEB e Mobile disponível para Android.
 
@@ -62,8 +62,8 @@ Para banco de dados, foi utilizado o **Mysql** para armazenar os dados que envol
 
 - [x] Aplicação Utilizando a Metodologia Clean-Code (Clean-Code);
 - [x] Utilização do [nestjs](https://nestjs.com/) Nest. js é um framework para construir backend em Node. js que trás o modelo arquitetural mais utilizado atualmente de maneira fácil, e aproveitando os principais frameworks.
-- [x] Utilização do [typescript](https://www.typescriptlang.org/) fazer tipagem em noso código;
-- [x] Utilização do [mysql](https://www.npmjs.com/package/mysql2) fazer armazenamento da nossas informações;
+- [x] Utilização do [typescript](https://www.typescriptlang.org/) para fazer tipagem em noso código;
+- [x] Utilização do [mysql](https://www.npmjs.com/package/mysql2) para fazer armazenamento da nossas informações;
 - [x] Utilizado o [uuid](https://www.npmjs.com/package/uuid) Um identificador único universal (do inglês universally unique identifier - UUID);
 - [x] Utilização do [jwt](https://jwt.io/) para trabalhar com autenticação de usuário;
 - [x] Utilização do [bcrypt.js](https://www.npmjs.com/package/bcryptjs) para trabalhar com hash de senhas de usuário exe: [h84uh734f3];
