@@ -4,17 +4,20 @@ import {
   Controller,
   Delete,
   Get,
+  HttpCode,
+  HttpStatus,
   NotFoundException,
   Param,
   ParseIntPipe,
+  ParseUUIDPipe,
   Post,
   Put,
 } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { UserEntity } from '../domain/entity/user.entity';
-import { UserService } from '../domain/services/user.service';
-import { UserDTO } from '../DTOS/userDTO';
+import { UserEntity } from '../../domain/entity/users/user.entity';
+import { UserService } from '../../services/users/user.service';
+import { UserDTO } from '../../DTOS/userDTO';
 
 @Controller('/person')
 export class UserController {
@@ -41,5 +44,18 @@ export class UserController {
   @Get(':id')
   public async findOneUser(@Param('id') id: string): Promise<UserDTO> {
     return this.createUserService.findOneUser(id);
+  }
+
+  @Put(':id')
+  public async updatedUser(
+    @Param() id: string,
+    @Body() data: UserDTO,
+  ): Promise<UserDTO> {
+    return await this.createUserService.updatedUser(id, data);
+  }
+
+  @Delete(':id')
+  public async DestroyUser(@Param('id') id: string) {
+    return this.createUserService.DestroyUser(id);
   }
 }

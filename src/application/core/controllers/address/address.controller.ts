@@ -1,8 +1,8 @@
 /* eslint-disable prettier/prettier */
 import { Body, Controller, Post, Get, Param, Patch } from '@nestjs/common';
 
-import { AddressService } from '../domain/services/address.service';
-import { AddressDTO } from '../DTOS/addressDTO';
+import { AddressService } from '../../services/address/address.service';
+import { AddressDTO } from '../../DTOS/addressDTO';
 
 @Controller('/address')
 export class AddressController {

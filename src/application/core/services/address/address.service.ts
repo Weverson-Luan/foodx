@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { AddressEntity } from '../entity/address.entity';
+import { AddressEntity } from '../../domain/entity/address/address.entity';
 import { AddressDTO } from '../../DTOS/addressDTO';
 import { Repository, getConnection } from 'typeorm';
 

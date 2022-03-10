@@ -1,22 +1,35 @@
 /* eslint-disable prettier/prettier */
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { UserEntity } from './application/core/domain/entity/user.entity';
-import { AddressEntity } from './application/core/domain/entity/address.entity';
+import { ConfigModule } from '@nestjs/config';
 
-import { UserController } from './application/core/controllers/usertest.controller';
-import { UserService } from './application/core/domain/services/user.service';
-
-import { AddressController } from './application/core/controllers/address.controller';
-import { AddressService } from './application/core/domain/services/address.service';
+import { UserModule } from './application/core/modules/user/user.module';
+import { AuthModule } from './application/core/modules/auth/auth.module';
 
 @Module({
   imports: [
-    TypeOrmModule.forFeature([UserEntity, AddressEntity]),
-    TypeOrmModule.forRoot(),
+    ConfigModule.forRoot(),
+    TypeOrmModule.forRoot({
+      type: process.env.TYPEORM_CONNECTION,
+      host: process.env.TYPEORM_HOST,
+      port: process.env.TYPEORM_PORT,
+      username: process.env.TYPEORM_USERNAME,
+      password: process.env.TYPEORM_PASSWORD,
+      database: process.env.TYPEORM_DATABASE,
+      entities: [__dirname + '/**/*.entity{.ts,.js}'],
+      logging: false,
+      synchronize: true,
+      migrations: ['src/infra/migration/**/*{.ts,.js}'],
+      cli: {
+        migrationsDir: 'src/application/infra/migrations',
+        entitiesDir: 'src/application/core/domain/entity/**/*{.ts,.js}',
+      },
+    } as TypeOrmModule),
+    UserModule,
+    AuthModule,
   ],
-  controllers: [UserController, AddressController],
-  providers: [UserService, AddressService],
-  exports: [UserService, AddressService],
+  controllers: [],
+  providers: [],
+  exports: [],
 })
 export class AppModule {}

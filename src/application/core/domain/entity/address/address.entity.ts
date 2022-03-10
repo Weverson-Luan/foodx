@@ -9,7 +9,7 @@ import {
   JoinColumn,
 } from 'typeorm';
 import { v4 as uuidV4 } from 'uuid';
-import { UserEntity } from './user.entity';
+import { UserEntity } from '../users/user.entity';
 
 @Entity('address')
 export class AddressEntity {
