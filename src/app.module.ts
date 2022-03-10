@@ -20,7 +20,7 @@ import { AddressModule } from './application/core/modules/address/address.module
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
       logging: false,
       synchronize: true,
-      migrations: ['src/infra/migration/**/*{.ts,.js}'],
+      migrations: ['src/application/infra/migration/**/*{.ts,.js}'],
       cli: {
         migrationsDir: 'src/application/infra/migrations',
         entitiesDir: 'src/application/core/domain/entity/**/*{.ts,.js}',
