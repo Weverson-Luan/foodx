@@ -13,7 +13,7 @@ class ProductController {
   }
 
   @Get()
-  public async findProducts(): Promise<ProductDTO[]> {
+  public async findProduct(): Promise<ProductDTO[]> {
     const products = this.productService.findProduct();
 
     return products;
