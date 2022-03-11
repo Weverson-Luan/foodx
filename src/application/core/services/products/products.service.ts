@@ -25,7 +25,7 @@ class ProductService {
     }
   }
 
-  async findProduct(): Promise<void> {
+  async findProduct(): Promise<ProductDTO[]> {
     try {
       const product = await this.productRepository.find();
 
@@ -34,6 +34,8 @@ class ProductService {
           `No product registered in the database was found . ${product}`,
         );
       }
+
+      return product;
     } catch (ex) {
       throw new Error(`Error in searching for products.`);
     }
