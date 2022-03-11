@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import { IsNotEmpty, IsEmail, Matches } from 'class-validator';
+import { IsNotEmpty } from 'class-validator';
 export class ProductDTO {
   id: string;
 
