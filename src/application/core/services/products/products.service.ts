@@ -1,12 +1,16 @@
 /* eslint-disable prettier/prettier */
 import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { ProductEntity } from '../../domain/entity/poducts/product.entity';
 import { ProductDTO } from '../../DTOS/productDTO';
 
 @Injectable()
 class ProductService {
-  constructor(private readonly productRepository: Repository<ProductEntity>) {}
+  constructor(
+    @InjectRepository(ProductEntity)
+    private readonly productRepository: Repository<ProductEntity>,
+  ) {}
 
   async createProduct(data: ProductDTO): Promise<void> {
     try {
