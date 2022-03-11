@@ -24,6 +24,8 @@ class ProductService {
       );
     }
   }
+
+  async findProduct(): Promise<void> {}
 }
 
 export { ProductService };
