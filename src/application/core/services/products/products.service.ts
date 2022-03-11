@@ -25,7 +25,19 @@ class ProductService {
     }
   }
 
-  async findProduct(): Promise<void> {}
+  async findProduct(): Promise<void> {
+    try {
+      const product = await this.productRepository.find();
+
+      if (!product) {
+        throw new Error(
+          `No product registered in the database was found . ${product}`,
+        );
+      }
+    } catch (ex) {
+      throw new Error(`Error in searching for products.`);
+    }
+  }
 }
 
 export { ProductService };
