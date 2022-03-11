@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 import { IsNotEmpty } from 'class-validator';
 export class ProductDTO {
-  id: string;
+  id?: string;
 
   @IsNotEmpty()
   name: string;
@@ -16,13 +16,13 @@ export class ProductDTO {
   quantity: number;
 
   @IsNotEmpty()
-  price: string;
+  price: number;
 
   @IsNotEmpty()
   delivery_fee: boolean;
 
   @IsNotEmpty()
-  assessment: string;
+  assessment: number;
 
   @IsNotEmpty()
   user_id: string;
